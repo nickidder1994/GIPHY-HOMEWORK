@@ -1,7 +1,7 @@
 var topics = ["The Office", "Portlandia", "Parks and Recreation", "Always Sunny In Philadelphia"]
 var api = "https://api.giphy.com/v1/gifs/search?" 
 var apiKey = "&api_key=CQBjbfAtYTJ9rknSsiu5pAmXPIaRYJZa"
-var query ="&q=the+office"
+var query ="q=the+office"
 var limit ="&limit=5"
 function setup () {
 noCanvas();
@@ -18,12 +18,15 @@ function draw(){
 // var apiKey = "CQBjbfAtYTJ9rknSsiu5pAmXPIaRYJZa"
 $('#search').on('click', function (e) {
     e.preventDefault();
+    var combined = api + query + apiKey + limit
+    console.log(combined)
     var userInput = $('#user-input').val()
     axios({
-        url: api,
+        url: combined,
         method: "GET"
     })
         .then(function (response) {
+            
            $('.container').append(JSON.stringify(response.data));
         })
         .catch(function (err) {
