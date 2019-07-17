@@ -1,11 +1,14 @@
 var topics = ["The Office", "Portlandia", "Parks and Recreation", "Always Sunny In Philadelphia"]
-var api = "https://api.giphy.com/v1/gifs/search?" 
+var api = "https://api.giphy.com/v1/gifs/search?q=" 
 var apiKey = "&api_key=CQBjbfAtYTJ9rknSsiu5pAmXPIaRYJZa"
-var query ="q=the+office"
+// var query ="q=the+office"
 var limit ="&limit=5"
+
+var iput
+
 function setup () {
 noCanvas();
-var url = api + apiKey + query + limit;
+var url = api + apiKey + input.value() + limit;
 loadJSON(url, gotData);
 }
 function gotData(data){
@@ -18,20 +21,24 @@ function draw(){
 // var apiKey = "CQBjbfAtYTJ9rknSsiu5pAmXPIaRYJZa"
 $('#search').on('click', function (e) {
     e.preventDefault();
-    var combined = api + query + apiKey + limit
+    var combined = api + input.value() + apiKey + limit
     console.log(combined)
-    var userInput = $('#user-input').val()
+    // var userInput = $('#gif-input').val()
     axios({
         url: combined,
         method: "GET"
     })
+    input = getElementById("#gif-input")
         .then(function (response) {
-            
-           $('.container').append(JSON.stringify(response.data));
+            console.log(response.data.data)
+        //    $('.container').append(JSON.stringify(response.data));
         })
         .catch(function (err) {
             console.error(err)
         })
+        for(i = 0; i<5; i++){
+            console.log(i)
+        }
 })
 //create an in itial array of topics
 
