@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
     <title>GIPHY</title>
 </head>
 
 <body>
+    <div id="gif-buttons">
+
+    </div>
 <form id="gifs-form">
     <label for="gifs-input">Search GIFS</label>
-    <input type="text" id="gif-input">
-    <button id="search" type="submit">Submit</button> 
+    <input type="text" id="gifs-input">
+    <input id="search" type="submit" value="Submit"> 
 </form>
+
 <div class="container"></div>
     <div class="buttons-view"></div>
 
 
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
 <script src="./assets/javascript/file.js"></script>
 
 </html>
